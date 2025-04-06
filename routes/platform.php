@@ -12,8 +12,9 @@ use App\Orchid\Screens\Examples\ExampleLayoutsScreen;
 use App\Orchid\Screens\Examples\ExampleScreen;
 use App\Orchid\Screens\Examples\ExampleTextEditorsScreen;
 use App\Orchid\Screens\PlatformScreen;
+use App\Orchid\Screens\Posts\EditPostScreen;
 use App\Orchid\Screens\Posts\index;
-use App\Orchid\Screens\Posts\PostsManagement;
+use App\Orchid\Screens\Posts\ListAllPostsScreen;
 use App\Orchid\Screens\Role\RoleEditScreen;
 use App\Orchid\Screens\Role\RoleListScreen;
 use App\Orchid\Screens\User\UserEditScreen;
@@ -33,8 +34,20 @@ use Tabuna\Breadcrumbs\Trail;
 |
 */
 
-/** Custom Routes */
-Route::screen('/posts/index', PostsManagement::class)->name('platform.posts.index');
+/******************************************
+ *              Custom Routes             *
+ *****************************************/
+
+/** Posts Management */
+Route::screen('/posts/index', ListAllPostsScreen::class)
+    ->name('platform.posts.index');
+
+Route::screen('/posts/create', EditPostScreen::class)
+    ->name('platform.posts.insert');
+
+Route::screen('posts/{post}/edit', EditPostScreen::class)
+    ->name('platform.posts.edit');
+
 
 // Main
 Route::screen('/main', PlatformScreen::class)

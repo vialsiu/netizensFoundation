@@ -35,11 +35,18 @@ class PlatformProvider extends OrchidServiceProvider
     {
         return [
             /** General Management */
+
+            /** Posts Management */
             Menu::make('Manage Posts')
-            ->icon('bs.book')
-            ->title('General Management')
-            ->route('platform.posts.index')
-            ->divider(),
+                ->icon('bs.book')
+                ->title('General Management')
+                ->route('platform.posts.index'),
+
+            /** Categories Management */
+            Menu::make('Manage Categories')
+                ->icon('bs.tags')
+                ->route('platform.categories.index')
+                ->divider(),
 
             /** Users Management */
             Menu::make(__('Users'))

@@ -1,33 +1,31 @@
 <?php
 
-namespace App\Orchid\Screens\Posts;
+namespace App\Orchid\Screens\Categories;
 
-use App\Models\Post;
-use App\Orchid\Layouts\Posts\EditPostsLayout;
+use App\Models\Category;
+use App\Orchid\Layouts\Categories\EditCategoryLayout;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Screen;
 use Orchid\Support\Facades\Toast;
 
-class EditPostScreen extends Screen
+class EditCategoryScreen extends Screen
 {
     /**
-     * @var Post
+     * @var Category
      */
-    public $post;
-
+    public $category;
     /**
      * Fetch data to be displayed on the screen.
      *
-     * @param Post $post
      * @return array
      */
-    public function query(Post $post): iterable
+    public function query(Category $category): iterable
     {
         return [
-            'post' => $post,
+            'category' => $category,
         ];
     }
 
@@ -38,7 +36,7 @@ class EditPostScreen extends Screen
      */
     public function name(): ?string
     {
-        return $this->post->exists ? 'Edit Post' : 'Create Post';
+        return $this->category->exists ? 'Edit Category' : 'Create Category';
     }
 
     /**
@@ -67,37 +65,34 @@ class EditPostScreen extends Screen
     public function layout(): iterable
     {
         return [
-            EditPostsLayout::class,
+            EditCategoryLayout::class
         ];
     }
 
     /**
-     * Save the post.
+     * Save the category
      *
-     * @param Post $post
+     * @param Category $category
      * @param Request $request
      * @return RedirectResponse
      */
-    public function save(Post $post, Request $request): RedirectResponse
+    public function save(Category $category, Request $request): RedirectResponse
     {
         $validated = $request->validate([
-            'post.title' => 'required|max:255',
-            'post.slug' => 'required|max:255|unique:posts,slug',
-            'post.excerpt' => 'required|max:100',
-            'post.content' => 'required',
-            'post.image' => 'required',
-            'post.category_id' => 'required|numeric|exists:categories,id',
+            'category.category_name' => 'required|unique:categories,category_name',
+            'category.icon' => 'required',
+            'category.is_available' => 'required',
         ]);
 
-        $postData = array_merge($validated['post'], [
-            'author' => Auth::id(),
+        $categoryData = array_merge($validated['category'], [
+            'category_slug' => Str::slug($validated['category']['category_name']),
         ]);
 
-        $post->fill($postData)->save();
+        $category->fill($categoryData)->save();
 
-        Toast::info(__('Post was saved.'));
+        Toast::info(__('Category has been saved.'));
 
-        return redirect()->route('platform.posts.index');
+        return redirect()->route('platform.categories.index');
     }
 
     /**
@@ -107,6 +102,6 @@ class EditPostScreen extends Screen
      */
     public function cancel(): RedirectResponse
     {
-        return redirect()->route('platform.posts.index');
+        return redirect()->route('platform.categories.index');
     }
 }

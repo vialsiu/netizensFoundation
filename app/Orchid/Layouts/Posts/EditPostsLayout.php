@@ -11,7 +11,7 @@ use Orchid\Screen\Fields\Quill;
 use Orchid\Screen\Fields\Relation;
 use Orchid\Screen\Layouts\Rows;
 
-class PostsEditLayout extends Rows
+class EditPostsLayout extends Rows
 {
     /**
      * Get the fields elements to be displayed.

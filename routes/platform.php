@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+use App\Orchid\Screens\Categories\EditCategoryScreen;
+use App\Orchid\Screens\Categories\ListAllCategoriesScreen;
 use App\Orchid\Screens\Examples\ExampleActionsScreen;
 use App\Orchid\Screens\Examples\ExampleCardsScreen;
 use App\Orchid\Screens\Examples\ExampleChartsScreen;
@@ -47,6 +49,17 @@ Route::screen('/posts/create', EditPostScreen::class)
 
 Route::screen('posts/{post}/edit', EditPostScreen::class)
     ->name('platform.posts.edit');
+
+
+/** Categories Management */
+Route::screen('/categories/index', ListAllCategoriesScreen::class)
+    ->name('platform.categories.index');
+
+Route::screen('/categories/create', EditCategoryScreen::class)
+    ->name('platform.categories.insert');
+
+Route::screen('/categories/{category}/edit', EditCategoryScreen::class)
+    ->name('platform.categories.edit');
 
 
 // Main

@@ -34,6 +34,34 @@ class PlatformProvider extends OrchidServiceProvider
     public function menu(): array
     {
         return [
+            /** General Management */
+
+            /** Posts Management */
+            Menu::make('Manage Posts')
+                ->icon('bs.book')
+                ->title('General Management')
+                ->route('platform.posts.index'),
+
+            /** Categories Management */
+            Menu::make('Manage Categories')
+                ->icon('bs.tags')
+                ->route('platform.categories.index')
+                ->divider(),
+
+            /** Users Management */
+            Menu::make(__('Users'))
+                ->icon('bs.people')
+                ->route('platform.systems.users')
+                ->permission('platform.systems.users')
+                ->title(__('Access Controls')),
+
+            Menu::make(__('Roles'))
+                ->icon('bs.shield')
+                ->route('platform.systems.roles')
+                ->permission('platform.systems.roles')
+                ->divider(),
+
+            /** Examples Only (use it for reference) */
             Menu::make('Get Started')
                 ->icon('bs.book')
                 ->title('Navigation')
@@ -65,30 +93,6 @@ class PlatformProvider extends OrchidServiceProvider
                 ->icon('bs.card-text')
                 ->route('platform.example.cards')
                 ->divider(),
-
-            Menu::make(__('Users'))
-                ->icon('bs.people')
-                ->route('platform.systems.users')
-                ->permission('platform.systems.users')
-                ->title(__('Access Controls')),
-
-            Menu::make(__('Roles'))
-                ->icon('bs.shield')
-                ->route('platform.systems.roles')
-                ->permission('platform.systems.roles')
-                ->divider(),
-
-            Menu::make('Documentation')
-                ->title('Docs')
-                ->icon('bs.box-arrow-up-right')
-                ->url('https://orchid.software/en/docs')
-                ->target('_blank'),
-
-            Menu::make('Changelog')
-                ->icon('bs.box-arrow-up-right')
-                ->url('https://github.com/orchidsoftware/platform/blob/master/CHANGELOG.md')
-                ->target('_blank')
-                ->badge(fn () => Dashboard::version(), Color::DARK),
         ];
     }
 

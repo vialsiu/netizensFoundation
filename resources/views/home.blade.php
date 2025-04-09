@@ -25,9 +25,6 @@
         </section>
         
         
-        
-        
-        
 
         <!-- Trending Cards -->
         @include('partials.trending-cards')

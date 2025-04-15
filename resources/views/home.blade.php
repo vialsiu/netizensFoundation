@@ -3,22 +3,31 @@
 @section('title', 'Netizens Foundation')
 
 @section('content')
-    <section class="py-8">
-        <h2 class="text-2xl font-bold mb-4">Test display posts</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            @foreach ($posts as $post)
-                <a href="{{ route('blog.post', ['slug' => $post->slug]) }}">
-                    <div class="bg-white shadow-lg rounded-lg overflow-hidden">
-                        <img src="{{ $post->image }}" alt="{{ $post->title }}"
-                             class="w-full h-40 object-cover">
-                        <div class="p-4">
-                            <h3 class="text-lg font-semibold">{{ $post->title }}</h3>
-                            <p class="text-sm text-gray-600">By {{ $post->user->name }}
-                                - {{ $post->created_at->format('d M, Y') }}</p>
-                        </div>
-                    </div>
-                </a>
-            @endforeach
-        </div>
-    </section>
+    <div class="min-h-screen w-full flex flex-col">
+        <!-- Top Banner -->
+
+        @include('partials.scrolling-banner')
+
+
+        <!-- Header -->
+        @include('partials.header')
+
+        <!-- Hero Section -->
+        <section class="py-16" style="background-color: #beccdc;">
+            <div style="padding-left: 3vw;">
+                <h1 class="text-5xl md:text-7xl font-extrabold leading-tight text-black">
+                    NETIZENS<br>FOUNDATION
+                </h1>
+                <p class="text-xl md:text-2xl mt-4 font-semibold text-gray-700">
+                    Trending This Week
+                </p>
+            </div>
+        </section>
+        
+        
+
+        <!-- Trending Cards -->
+        @include('partials.trending-cards')
+
+    </div>
 @endsection

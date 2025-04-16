@@ -5,9 +5,7 @@
 @section('content')
     <div class="min-h-screen w-full flex flex-col">
         <!-- Top Banner -->
-
         @include('partials.scrolling-banner')
-
 
         <!-- Header -->
         @include('partials.header')
@@ -23,11 +21,8 @@
                 </p>
             </div>
         </section>
-        
-        
 
         <!-- Trending Cards -->
         @include('partials.trending-cards')
-
     </div>
 @endsection

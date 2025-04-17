@@ -68,7 +68,7 @@
                     </div>
                 </div>
 
-                <a href="#"
+                <a href="{{ route('auth.google.redirect') }}"
                    class="w-full flex items-center justify-center gap-2 bg-black text-white py-3 px-4 rounded-lg font-medium hover:bg-gray-700 transition duration-200">
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
                         <path fill="currentColor"

@@ -23,3 +23,9 @@ Route::get('/auth/google/callback', [AuthBlogController::class, 'callback'])->na
 
 /** SEE POSTS */
 Route::get('/post/{slug}', [BlogController::class, 'showPost'])->name('blog.post');
+
+/** SEE CATEGORIES */
+Route::get('/categories', [BlogController::class, 'viewAllCategories'])->name('blog.categories');
+
+/** CONTACT PAGE */
+Route::get('/contact', [BlogController::class, 'contact'])->name('blog.contact');

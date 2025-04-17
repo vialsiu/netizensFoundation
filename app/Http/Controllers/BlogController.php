@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -24,5 +25,17 @@ class BlogController extends Controller
         $post = Post::where('slug', $slug)->firstOrFail();
 
         return view('blog-content.show-post', compact('post'));
+    }
+
+    public function viewAllCategories(): Factory|Application|View
+    {
+        $categories = Category::all();
+
+        return view('blog-content.categories-display', compact('categories'));
+    }
+
+    public function contact(): Factory|Application|View
+    {
+        return \view('blog-content.contact-page');
     }
 }

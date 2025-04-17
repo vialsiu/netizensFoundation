@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthBlogController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Route;
 
 /** HOMEPAGE */
@@ -29,3 +30,4 @@ Route::get('/categories', [BlogController::class, 'viewAllCategories'])->name('b
 
 /** CONTACT PAGE */
 Route::get('/contact', [BlogController::class, 'contact'])->name('blog.contact');
+Route::post('/contact', [ContactController::class, 'send'])->name('contact.send');

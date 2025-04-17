@@ -17,7 +17,7 @@
                 </div>
 
                 <!-- Contact Form -->
-                <form method="POST" action="#" class="space-y-4">
+                <form method="POST" action="{{ route('contact.send') }}" class="space-y-4">
                     @csrf
 
                     <!-- Name Input -->

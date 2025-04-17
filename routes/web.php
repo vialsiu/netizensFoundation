@@ -16,5 +16,10 @@ Route::post('/register', [AuthBlogController::class, 'registerAction'])->name('a
 
 Route::get('/logout', [AuthBlogController::class, 'logout'])->name('auth.logout');
 
+/** GOOGLE AUTH */
+Route::get('/auth/google/redirect', [AuthBlogController::class, 'redirect'])->name('auth.google.redirect');
+Route::get('/auth/google/callback', [AuthBlogController::class, 'callback'])->name('auth.google.callback');
+
+
 /** SEE POSTS */
 Route::get('/post/{slug}', [BlogController::class, 'showPost'])->name('blog.post');

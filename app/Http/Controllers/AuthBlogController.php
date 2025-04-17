@@ -10,6 +10,8 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Laravel\Socialite\Facades\Socialite;
+use \Symfony\Component\HttpFoundation\RedirectResponse as SymfonyRedirectResponse;
 
 class AuthBlogController extends Controller
 {
@@ -64,6 +66,50 @@ class AuthBlogController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
+        return redirect()->route('blog.home');
+    }
+
+    /*************************************************
+     *              GOOGLE AUTH                      *
+     *************************************************/
+
+    /**
+     * Redirects to google OAuth page
+     *
+     * @return SymfonyRedirectResponse|RedirectResponse
+     */
+    public function redirect(): SymfonyRedirectResponse|RedirectResponse
+    {
+        return Socialite::driver('google')->redirect();
+    }
+
+    /**
+     * Handle the callback from Google
+     *
+     * @return RedirectResponse
+     */
+    public function callback(): RedirectResponse
+    {
+        try {
+            $user = Socialite::driver('google')->user();
+        } catch (\Throwable $e) {
+            return redirect()->route('auth.login')->with('error', $e->getMessage());
+        }
+
+        $existingUser = User::where('email', $user->email)->first();
+
+        if ($existingUser) {
+            Auth::login($existingUser);
+        } else {
+            $newUser = User::updateOrCreate([
+                'email' => $user->email,
+            ], [
+                'name' => $user->name,
+                'password' => Hash::make($user->email),
+                'email_verified_at' => now(),
+            ]);
+            Auth::login($newUser);
+        }
         return redirect()->route('blog.home');
     }
 }

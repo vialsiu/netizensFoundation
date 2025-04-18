@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthBlogController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Route;
 
 /** HOMEPAGE */
@@ -23,3 +24,10 @@ Route::get('/auth/google/callback', [AuthBlogController::class, 'callback'])->na
 
 /** SEE POSTS */
 Route::get('/post/{slug}', [BlogController::class, 'showPost'])->name('blog.post');
+
+/** SEE CATEGORIES */
+Route::get('/categories', [BlogController::class, 'viewAllCategories'])->name('blog.categories');
+
+/** CONTACT PAGE */
+Route::get('/contact', [BlogController::class, 'contact'])->name('blog.contact');
+Route::post('/contact', [ContactController::class, 'send'])->name('contact.send');

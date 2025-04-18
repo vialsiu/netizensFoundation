@@ -13,11 +13,16 @@ class BlogController extends Controller
 {
     public function home(): Factory|Application|View
     {
-        $posts = Post::with('user')
+        $posts = Post::with('category')
             ->orderBy('created_at', 'desc')
             ->get();
 
-        return view('home', compact('posts'));
+        $featuredPosts = Post::with('category')
+            ->orderBy('created_at', 'desc')
+            ->limit(5)
+            ->get();
+
+        return view('home', compact('posts', 'featuredPosts'));
     }
 
     public function showPost(string $slug): Factory|Application|View

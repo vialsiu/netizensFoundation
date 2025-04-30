@@ -3,8 +3,6 @@
 @section('title', 'Contact Us - Netizens Foundation')
 
 @section('content')
-    @include('partials.scrolling-banner')
-    @include('partials.header')
     <div class="bg-[#beccdc] min-h-screen flex items-center justify-center p-4">
         <!-- Main Container -->
         <div class="w-full max-w-md flex flex-col items-center space-y-5">

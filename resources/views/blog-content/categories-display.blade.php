@@ -3,8 +3,6 @@
 @section('title', 'Netizens Foundation - All Categories')
 
 @section('content')
-    @include('partials.scrolling-banner')
-    @include('partials.header')
     <div class="max-w-6xl mx-auto px-4 py-8">
         <!-- Title -->
         <h2 class="text-3xl font-bold text-gray-800 mb-8">All Categories</h2>

@@ -10,6 +10,17 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="text-black" style="background-color: #beccdc;">
+    @if(!request()->routeIs('auth.*'))
+        <!-- Top Banner -->
+        @include('partials.scrolling-banner')
+
+        <!-- Header -->
+        @include('partials.header')
+    @endif
+
+    <!-- Hold the content of the pages -->
     @yield('content')
+
+    @include('partials.footer')
 </body>
 </html>

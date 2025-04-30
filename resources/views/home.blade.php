@@ -4,12 +4,6 @@
 
 @section('content')
     <div class="min-h-screen w-full flex flex-col bg-[#f8fafc]">
-        <!-- Top Banner -->
-        @include('partials.scrolling-banner')
-
-        <!-- Header -->
-        @include('partials.header')
-
         <!-- Hero Section -->
         <section class="relative overflow-hidden py-12 md:py-16 lg:py-24 bg-gradient-to-br from-[#beccdc] to-[#a8b8cf]">
             <div class="container mx-auto px-4 md:px-6 lg:px-8">

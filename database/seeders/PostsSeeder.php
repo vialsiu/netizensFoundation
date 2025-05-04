@@ -13,12 +13,7 @@ class PostsSeeder extends Seeder
      */
     public function run(): void
     {
-        // Generate 10 fake posts (visible)
-        \App\Models\Post::factory()
-            ->count(10)
-            ->create(['is_visible' => 1]);
-    
-        // Custom curated posts
+        // Only curated posts
         $posts = [
             [
                 'title' => '2NE1’s CL Faces Backlash for Racist Slur',
@@ -30,19 +25,18 @@ class PostsSeeder extends Seeder
                 'author' => 1,
             ],
             [
-                'title' => 'K-Drama Star in Cheating Scandal',
-                'slug' => Str::slug('K-Drama Star in Cheating Scandal'),
-                'excerpt' => 'Famous Korean drama actor caught in a cheating controversy...',
-                'content' => '<p>The scandal involves allegations of infidelity...</p>',
-                'image' => 'posts/cheating_star.png',
-                'category_id' => 2,
+                'title' => 'Cynthia Erivo and Ariana Grande Shed TEARS During Every Interview',
+                'slug' => Str::slug('Cynthia Erivo and Ariana Grande Shed TEARS During Every Interview'),
+                'excerpt' => 'During the press tour for *Wicked*, both stars became emotional in nearly every interview segment...',
+                'content' => '<p>As the *Wicked* press tour continues, Cynthia Erivo and Ariana Grande have sparked conversations after repeatedly breaking down into tears when discussing their roles and friendship...</p>',
+                'image' => 'posts/ariana_cynthia_thumbnail.jpg',
+                'category_id' => 8,
                 'author' => 1,
             ],
         ];
-    
+
         foreach ($posts as $post) {
-            // Prevent duplicates on reseeding
-            \App\Models\Post::updateOrCreate(['slug' => $post['slug']], $post);
+            Post::updateOrCreate(['slug' => $post['slug']], $post);
         }
     }
 }

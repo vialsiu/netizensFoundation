@@ -8,7 +8,7 @@
         <div class="w-full flex flex-col items-center space-y-8">
             <!-- Logo Container -->
             <div class="flex justify-center mb-8">
-                <img src="{{ Vite::asset('resources/img/nflogo.png') }}"
+                <img src="{{ asset('img/nflogo.png') }}"
                      alt="NF Logo"
                      class="h-50 w-auto transition-transform hover:scale-105">
             </div>

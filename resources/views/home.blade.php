@@ -34,15 +34,33 @@
                         <article
                             class="group bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 ease-out overflow-hidden">
                             <!-- Image Container -->
-                            <div class="relative aspect-video overflow-hidden">
-                                <img src="{{ Vite::asset('resources/img/picture.png') }}" alt="{{ $post->title }}"
-                                     class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
-                                <div class="absolute inset-0 bg-gradient-to-t from-gray-900/30 to-transparent"></div>
-                                <span
-                                    class="absolute top-4 right-4 px-3 py-1 bg-white/90 backdrop-blur-sm text-sm font-medium rounded-full text-gray-800">
-                                    {{ $post->category->category_name }}
-                                </span>
-                            </div>
+<!-- Image Container -->
+@if($post->slug === '2ne1s-cl-faces-backlash-for-racist-slur')
+    <div class="relative aspect-video overflow-hidden group">
+        <video class="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition duration-300"
+               muted autoplay loop>
+               <source src="{{ asset('storage/videos/cl_hover_video.mp4') }}" type="video/mp4">
+               </video>
+               <img src="{{ asset('storage/posts/cl_thumbnail.jpg') }}" ...>
+               class="w-full h-full object-cover group-hover:opacity-0 transition duration-300"
+             alt="{{ $post->title }}">
+        <span
+            class="absolute top-4 right-4 px-3 py-1 bg-white/90 backdrop-blur-sm text-sm font-medium rounded-full text-gray-800">
+            {{ $post->category->category_name }}
+        </span>
+    </div>
+@else
+    <div class="relative aspect-video overflow-hidden">
+        <img src="{{ asset('storage/' . $post->image) }}" alt="{{ $post->title }}"
+             class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
+        <div class="absolute inset-0 bg-gradient-to-t from-gray-900/30 to-transparent"></div>
+        <span
+            class="absolute top-4 right-4 px-3 py-1 bg-white/90 backdrop-blur-sm text-sm font-medium rounded-full text-gray-800">
+            {{ $post->category->category_name }}
+        </span>
+    </div>
+@endif
+
 
                             <!-- Content -->
                             <div class="p-6 md:p-8">

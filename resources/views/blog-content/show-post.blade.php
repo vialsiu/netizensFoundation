@@ -43,11 +43,12 @@
         </div>
         
         @else
-            <img
-                src="{{ asset('storage/' . $post->image) }}"
-                class="w-full h-full object-cover rounded-xl"
-                alt="{{ $post->title }}"
-            />
+        <img
+        src="{{ asset('storage/' . $post->image) }}"
+        class="w-full max-w-4xl mx-auto object-cover rounded-xl mb-12"
+        alt="{{ $post->title }}"
+    />
+    
         @endif
     
         {{-- Move category badge BELOW the video to avoid blocking controls

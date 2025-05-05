@@ -1,4 +1,4 @@
-<footer class="bg-gray-900 py-12 text-white">
+<footer style="background-color: #303030;" class="py-12 text-white">
     <div class="container mx-auto px-4">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             <!-- About Section -->

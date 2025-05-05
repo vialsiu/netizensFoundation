@@ -33,3 +33,18 @@ html, body {
 .animate-scroll {
     animation: scroll-left 160s linear infinite;
 }
+
+
+a {
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+a:hover {
+    color: #92979e;
+    transform: scale(1.02);
+}
+
+a:active {
+    color: #520dc2;
+}

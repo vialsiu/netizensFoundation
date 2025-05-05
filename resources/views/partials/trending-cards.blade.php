@@ -12,7 +12,7 @@
         <div class="flex items-center justify-between relative">
             <!-- Left Arrow -->
             <button id="scrollLeft"
-                class="z-10 bg-[#404040] text-white w-14 h-14 flex items-center justify-center rounded-full shadow-lg hover:bg-[#5a5a5a] transition duration-300"
+                class="z-10 text-white w-14 h-14 flex items-center justify-center rounded-full hover:bg-[#5a5a5a] transition duration-300"
                 style="margin-left: 2rem;">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
                     viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -28,7 +28,7 @@
                  
                 @foreach ($featuredPosts as $featPost)
                     <a href="{{ route('blog.post', ['slug' => $featPost->slug]) }}">
-                        <div style="width: 340px;" class="bg-[#1a1a1a] rounded-xl overflow-hidden shrink-0 group">
+                        <div style="width: 340px;" class="rounded-xl overflow-hidden shrink-0 group">
                             <!-- Video / Image -->
                             <div class="relative aspect-video overflow-hidden rounded-xl">
                                 @if(array_key_exists($featPost->slug, $hoverVideos))
@@ -47,8 +47,8 @@
                                 <h3 class="text-xl font-bold leading-tight line-clamp-2">
                                     {{ $featPost->title }}
                                 </h3>
-                                <span class="text-sm text-gray-400 mt-2">
-                                    Featured
+                                <span class="text-sm text-gray-400 mt-2" style="color: #ababab;">
+                                    {{ $featPost->created_at->diffForHumans() }}
                                 </span>
                             </div>
                         </div>
@@ -61,7 +61,7 @@
 
             <!-- Right Arrow -->
             <button id="scrollRight"
-                class="z-10 bg-[#404040] text-white w-14 h-14 flex items-center justify-center rounded-full shadow-lg hover:bg-[#5a5a5a] transition duration-300"
+                class="z-10 text-white w-14 h-14 flex items-center justify-center rounded-full hover:bg-[#5a5a5a] transition duration-300"
                 style="margin-right: 2rem;">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
                     viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">

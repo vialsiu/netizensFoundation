@@ -23,6 +23,7 @@ class PostsSeeder extends Seeder
                 'image' => 'posts/cl_thumbnail.jpg',
                 'category_id' => 5,
                 'author' => 1,
+                'is_visible' => 1,
             ],
             [
                 'title' => 'Cynthia Erivo and Ariana Grande Shed TEARS During Every Interview',
@@ -32,6 +33,7 @@ class PostsSeeder extends Seeder
                 'image' => 'posts/ariana_cynthia_thumbnail.jpg',
                 'category_id' => 8,
                 'author' => 1,
+                'is_visible' => 1,
             ],            
             [
                 'title' => 'Timothée Chalamet Enters Rehab Amidst Substance Abuse Allegations',
@@ -41,6 +43,7 @@ class PostsSeeder extends Seeder
                 'image' => 'posts/chalamet_thumbnail.jpg',
                 'category_id' => 1,
                 'author' => 1,
+                'is_visible' => 1,
             ],
             [
                 'title' => 'Kim Soo Hyun Denies Underage Dating Accusation',
@@ -52,6 +55,7 @@ class PostsSeeder extends Seeder
                 'image' => 'posts/kimsoohyun_thumbnail.jpg',
                 'category_id' => 19,
                 'author' => 1,
+                'is_visible' => 1,
             ],
             [
                 'title' => 'Sean "Diddy" Combs Faces Federal Charges in High-Profile Trafficking Trial',
@@ -63,6 +67,7 @@ class PostsSeeder extends Seeder
                 'image' => 'posts/diddy_trial_thumbnail.jpg',
                 'category_id' => 3,
                 'author' => 1,
+                'is_visible' => 1,
             ],
         ];
 

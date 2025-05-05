@@ -27,8 +27,8 @@
 
         <!-- Latest Posts Section -->
         <section class="py-12 md:py-16 lg:py-20">
-            <div class="container mx-auto px-4 md:px-6 lg:px-8">
-                <h2 class="text-3xl md:text-4xl font-bold text-black mb-8 md:mb-12 text-center">
+            <div class="container mx-auto px-4 md:px-6 lg:px-8 text-left pl-2">
+                <h2 class="text-3xl md:text-4xl font-bold text-black mb-8 md:mb-12">
                     Latest Posts
                 </h2>
 

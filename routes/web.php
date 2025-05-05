@@ -28,6 +28,13 @@ Route::get('/post/{slug}', [BlogController::class, 'showPost'])->name('blog.post
 /** SEE CATEGORIES */
 Route::get('/categories', [BlogController::class, 'viewAllCategories'])->name('blog.categories');
 
+use App\Http\Controllers\CategoryController;
+Route::get('/categories/{id}', [CategoryController::class, 'show'])->name('categories.show');
+
+
+
 /** CONTACT PAGE */
 Route::get('/contact', [BlogController::class, 'contact'])->name('blog.contact');
 Route::post('/contact', [ContactController::class, 'send'])->name('contact.send');
+
+

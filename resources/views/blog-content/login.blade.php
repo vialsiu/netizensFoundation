@@ -8,7 +8,7 @@
         <div class="w-full max-w-md flex flex-col items-center space-y-8">
             <!-- Logo Container -->
             <div class="flex justify-center mb-8">
-                <img src="{{ Vite::asset('resources/img/nflogo.png') }}"
+                <img src="{{ asset('img/nflogo.png') }}"
                      alt="NF Logo"
                      class="h-50 w-auto transition-transform hover:scale-105">
             </div>
@@ -26,20 +26,20 @@
                     @csrf
 
                     <!-- Email Input -->
-                    <div>
-                        <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
-                        <input type="email" id="email" name="email" required
-                               class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-black focus:ring-black transition duration-200"
-                               placeholder="Enter your email">
-                    </div>
+<div>
+    <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+    <input type="email" id="email" name="email" required
+           class=" bg-[#F1F1F1] mt-1 block w-full rounded-md border-gray-300 shadow-sm py-3 px-4 text-sm focus:border-black focus:ring-black transition duration-200"
+           placeholder="Enter your email">
+</div>
 
-                    <!-- Password Input -->
-                    <div>
-                        <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
-                        <input type="password" id="password" name="password" required
-                               class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-black focus:ring-black transition duration-200"
-                               placeholder="••••••••">
-                    </div>
+<!-- Password Input -->
+<div>
+    <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+    <input type="password" id="password" name="password" required
+           class=" bg-[#F1F1F1] mt-1 block w-full rounded-md border-gray-300 shadow-sm py-3 px-4 text-sm focus:border-black focus:ring-black transition duration-200"
+           placeholder="••••••••">
+</div>
 
                     <!-- Remember Me & Forgot Password -->
                     <div class="flex items-center justify-between">

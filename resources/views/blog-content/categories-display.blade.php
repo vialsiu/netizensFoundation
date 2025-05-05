@@ -1,32 +1,59 @@
+@php 
+    use Illuminate\Support\Str; 
+@endphp
+
 @extends('layouts.blog')
 
 @section('title', 'Netizens Foundation - All Categories')
 
 @section('content')
-    @include('partials.scrolling-banner')
-    @include('partials.header')
-    <div class="max-w-6xl mx-auto px-4 py-8">
-        <!-- Title -->
-        <h2 class="text-3xl font-bold text-gray-800 mb-8">All Categories</h2>
+<div style="background-color: #f1f1f1;" class="w-full min-h-screen">
+    <!-- Top gradient shadow bar -->
+    {{-- <div style="height:5px; background: linear-gradient(to bottom, #b9bdc1 0%, #262626 100%); transition: background 0.3s ease-in-out;" class="w-full"></div> --}}
 
-        <!-- Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            @foreach($categories as $category)
-                <div class="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 p-6">
-                    <div class="flex items-start mb-4">
-                        <div class="bg-blue-500 p-3 rounded-lg mr-4">
-                            {!! $category->icon !!}
+    <!-- Main section -->
+    <section class="py-16 px-6 pt-8 pb-12">
+        <div class="max-w-screen-xl mx-auto px-6">
+            <h2 class="text-4xl font-bold text-left" style="color: #444444; margin-bottom: 1.5rem; padding-left: 0.5rem;">Categories</h2>
+
+            <!-- Grid of Category Cards -->
+            <div class="grid gap-6 md:gap-8" style="display: grid; grid-template-columns: repeat(4, 1fr);">
+                @foreach($categories as $category)
+                    @php
+                        $sluggedName = Str::slug(preg_replace('/[\/]/', '-', $category->category_name));
+                        $imagePath = 'storage/category-icons/' . $sluggedName . '.jpg';
+                    @endphp
+
+                    <article style="background-color: #dcdcdc;" class="group rounded transition-all duration-300 ease-out overflow-hidden shadow-lg hover:shadow-2xl">
+                        <!-- Category Image -->
+                        <div class="relative aspect-video overflow-hidden">
+                            <img src="{{ asset('storage/category-icons/' . Str::slug(str_replace('/', '', $category->category_name)) . '.jpg') }}"
+                                 alt="{{ $category->category_name }}"
+                                 class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
                         </div>
-                        <div>
-                            <h3 class="text-xl font-semibold text-gray-800 mb-2">{{ $category->category_name }}</h3>
+
+                        <!-- Card Content -->
+                        <div class="p-6 md:p-8">
+                            <h3 class="text-xl md:text-2xl font-bold mb-3 line-clamp-2 flex items-center gap-2" style="color: #303030;">
+                                {{ $category->category_name }}
+                            </h3>
+                            <div class="flex justify-between items-center">
+                                <a href="{{ route('categories.show', $category->id) }}"
+                                   class="inline-flex items-center font-medium transition-colors group-hover:translate-x-1"
+                                   style="color: #636363;">
+                                    View Posts
+                                    <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                              d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                                    </svg>
+                                </a>
+                                <span class="text-sm text-gray-400" style="color: #636363;">{{ $category->posts()->count() }} posts</span>
+                            </div>
                         </div>
-                    </div>
-                    <a href="#"
-                       class="text-gray-800 hover:text-gray-700 text-sm font-medium hover:underline">
-                        View Posts →
-                    </a>
-                </div>
-            @endforeach
+                    </article>
+                @endforeach
+            </div>
         </div>
-    </div>
+    </section>
+</div>
 @endsection

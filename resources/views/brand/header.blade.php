@@ -1,6 +1,6 @@
 @push('head')
     <link
-        href={{ Vite::asset('resources/img/gossip.png') }}
+        href={{ asset('img/gossip.png') }}
         id="favicon"
         rel="icon"
     >
@@ -11,7 +11,7 @@
     @endauth
 
     <p class="my-0 {{ auth()->check() ? 'd-none d-xl-block' : '' }}">
-        <img src="{{ Vite::asset('resources/img/gossip.png') }}" alt="{{ config('app.name') }}" width="62" height="62">
+        <img src="{{ asset('img/gossip.png') }}" alt="{{ config('app.name') }}" width="62" height="62">
         <span>Netizens Foundation</span>
     </p>
 </div>

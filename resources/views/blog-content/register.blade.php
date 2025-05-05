@@ -14,8 +14,8 @@
             </div>
 
             <!-- Registration Card -->
-            <div class="w-full max-w-md bg-white rounded-2xl shadow-xl p-8 space-y-6">
-                <!-- Header -->
+<div class="w-full max-w-md bg-white rounded-2xl shadow-xl p-8 space-y-6 mb-20">
+    <!-- Header -->
                 <div class="text-center space-y-2">
                     <h1 class="text-3xl font-bold text-gray-900">Create Account</h1>
                     <p class="text-gray-600">Get started with your free account</p>
@@ -29,7 +29,7 @@
                     <div>
                         <label for="name" class="block text-sm font-medium text-gray-700">Full Name</label>
                         <input type="text" id="name" name="name" required
-                               class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-black focus:ring-black transition duration-200"
+                               class="bg-[#F1F1F1] mt-1 block w-full rounded-md border-gray-300 shadow-sm py-3 px-4 text-sm focus:border-black focus:ring-black transition duration-200"
                                placeholder="Enter your full name">
                     </div>
 
@@ -37,7 +37,7 @@
                     <div>
                         <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
                         <input type="email" id="email" name="email" required
-                               class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-black focus:ring-black transition duration-200"
+                               class="bg-[#F1F1F1] mt-1 block w-full rounded-md border-gray-300 shadow-sm py-3 px-4 text-sm focus:border-black focus:ring-black transition duration-200"
                                placeholder="Enter your email">
                     </div>
 
@@ -45,16 +45,15 @@
                     <div>
                         <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
                         <input type="password" id="password" name="password" required
-                               class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-black focus:ring-black transition duration-200"
+                               class="bg-[#F1F1F1] mt-1 block w-full rounded-md border-gray-300 shadow-sm py-3 px-4 text-sm focus:border-black focus:ring-black transition duration-200"
                                placeholder="••••••••">
                     </div>
 
                     <!-- Password Confirmation -->
                     <div>
-                        <label for="password_confirmation" class="block text-sm font-medium text-gray-700">Confirm
-                            Password</label>
+                        <label for="password_confirmation" class="block text-sm font-medium text-gray-700">Confirm Password</label>
                         <input type="password" id="password_confirmation" name="password_confirmation" required
-                               class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-black focus:ring-black transition duration-200"
+                               class="bg-[#F1F1F1] mt-1 block w-full rounded-md border-gray-300 shadow-sm py-3 px-4 text-sm focus:border-black focus:ring-black transition duration-200"
                                placeholder="••••••••">
                     </div>
 

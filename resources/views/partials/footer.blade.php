@@ -39,7 +39,7 @@
             </div>
         </div>
         <!-- Trademark -->
-        <div class="mt-8 pt-8 border-t border-gray-800 text-center text-gray-400">
+        <div class="mt-8 pt-8 border-t border-black text-center text-gray-300">
             <p class="flex items-center justify-center">
                 <span>&copy; 2025 Netizens Foundation. All rights reserved.</span>
             </p>

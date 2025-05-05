@@ -7,7 +7,7 @@
 @section('title', 'Netizens Foundation - All Categories')
 
 @section('content')
-<div style="background-color: #2d2d2d;" class="w-full min-h-screen">
+<div style="background-color: #373737;" class="w-full min-h-screen">
     <!-- Top gradient shadow bar -->
     {{-- <div style="height:5px; background: linear-gradient(to bottom, #b9bdc1 0%, #262626 100%); transition: background 0.3s ease-in-out;" class="w-full"></div> --}}
 

@@ -1,7 +1,18 @@
 @extends('layouts.blog')
 
 @section('content')
-<div class="bg-[#f9f9f9] min-h-screen py-12 px-4 md:px-10">
+<div class="bg-[#f0f0f0] min-h-screen py-12 px-4 md:px-10">
+
+    @php
+    $hoverVideos = [
+        '2ne1s-cl-faces-backlash-for-racist-slur' => 'cl_hover_video.mp4',
+        'cynthia-erivo-and-ariana-grande-shed-tears-during-every-interview' => 'ariana_cynthia_hover.mp4',
+        'sean-diddy-combs-faces-federal-charges-in-high-profile-trafficking-trial' => 'diddy_trial_hover.mp4',
+        'kim-soo-hyun-denies-underage-dating-accusation' => 'kimsoohyun_hover.mp4',
+    ];
+@endphp
+
+
 
     {{-- Title & Byline --}}
     <div class="max-w-4xl mx-auto text-center border-b pb-6 mb-8">
@@ -15,31 +26,45 @@
     </div>
 
     {{-- Featured Media --}}
-    <div class="max-w-5xl mx-auto mb-10">
-        @if($post->video_path ?? false)
-            <div class="bg-[#303030] w-full py-4 px-4 rounded-md">
-                <video 
-                    class="w-full max-h-[700px] object-contain mx-auto rounded-md"
-                    controls
-                    preload="metadata">
-                    <source src="{{ asset('storage/videos/' . $post->video_path) }}" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-            </div>
+    {{-- <div class="relative max-w-4xl mx-auto aspect-video overflow-hidden rounded-xl shadow-lg mb-12"> --}}
+        @if (array_key_exists($post->slug, $hoverVideos))
+        <div class="relative max-w-4xl mx-auto aspect-video overflow-hidden rounded-xl shadow-lg mb-12">
+            <video
+                class="w-full h-full object-cover rounded-xl"
+                controls
+                preload="metadata"
+            >
+                <source src="{{ asset('storage/videos/' . $hoverVideos[$post->slug]) }}" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <span class="absolute top-4 right-4 px-3 py-1 bg-white/90 backdrop-blur-sm text-sm font-medium rounded-full text-gray-800">
+                {{ $post->category->category_name }}
+            </span>
+        </div>
+        
         @else
-            <div class="bg-[#eee] rounded-md overflow-hidden shadow">
-                <img 
-                    src="{{ asset('storage/' . $post->image) }}" 
-                    alt="{{ $post->title }}"
-                    class="w-full object-contain max-h-[600px] mx-auto">
-            </div>
+            <img
+                src="{{ asset('storage/' . $post->image) }}"
+                class="w-full h-full object-cover rounded-xl"
+                alt="{{ $post->title }}"
+            />
         @endif
-    </div>
+    
+        {{-- Move category badge BELOW the video to avoid blocking controls
+        <div class="mt-4 text-right pr-2">
+            <span class="inline-block px-3 py-1 bg-white/90 backdrop-blur-sm text-sm font-medium rounded-full text-gray-800">
+                {{ $post->category->category_name }}
+            </span>
+        </div>
+    </div> --}}
+    
+    
+    
+    {{-- Post Content --}}
+<div class="max-w-4xl mx-auto prose prose-lg prose-p:leading-relaxed prose-headings:mt-8 prose-img:rounded-xl text-gray-800">
+    {!! $post->content !!}
+</div>
 
-    {{-- Full Content --}}
-    <div class="prose prose-lg prose-slate max-w-4xl mx-auto pb-24">
-        {!! $post->content !!}
-    </div>
 
 </div>
 @endsection

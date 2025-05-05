@@ -12,10 +12,14 @@
         <div class="flex items-center justify-between relative">
             <!-- Left Arrow -->
             <button id="scrollLeft"
-                    class="z-10 bg-gray-700 text-white px-4 py-3 rounded-full hover:bg-gray-600"
-                    style="margin-left: 2rem; height: 60px;">
-                &lt;
+                class="z-10 bg-[#404040] text-white w-14 h-14 flex items-center justify-center rounded-full shadow-lg hover:bg-[#5a5a5a] transition duration-300"
+                style="margin-left: 2rem;">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
+                </svg>
             </button>
+
 
             <!-- Scrollable content -->
             <div id="carousel"
@@ -57,12 +61,14 @@
 
             <!-- Right Arrow -->
             <button id="scrollRight"
-                    class="z-10 bg-gray-700 text-white px-4 py-3 rounded-full hover:bg-gray-600"
-                    style="margin-right: 2rem; height: 60px;">
-                &gt;
+                class="z-10 bg-[#404040] text-white w-14 h-14 flex items-center justify-center rounded-full shadow-lg hover:bg-[#5a5a5a] transition duration-300"
+                style="margin-right: 2rem;">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+                </svg>
             </button>
-        </div>
-    </div>
+
 
     <!-- Hide scrollbar -->
     <style>

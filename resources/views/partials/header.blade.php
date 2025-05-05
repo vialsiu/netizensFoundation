@@ -1,5 +1,5 @@
 @php use Illuminate\Support\Facades\Auth; @endphp
-<div class="flex justify-between items-center py-6 px-2 md:px-4 shadow-md" style="background-color: #beccdc;">
+<div class="flex justify-between items-center py-6 px-2 md:px-4" style="background-color: #beccdc;">
     <div class="flex items-center space-x-6" style="padding-left: 2vw;">
         <a href="{{ route('blog.home') }}">
             <img src="{{ asset('img/nflogo.png') }}" alt="NF Logo" style="height:52px; width:auto;">
